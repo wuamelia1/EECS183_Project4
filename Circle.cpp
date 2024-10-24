@@ -5,10 +5,10 @@
  * EECS 183
  * Project 4: CoolPics
  *
- * <#Name(s)#>
- * <#uniqname(s)#>
+ * Blake Yates, Amelia Wu
+ * bryates, wuamelia
  *
- * <#Description#>
+ * Definitions for class Circle constructors and member fu
  */
 
 #include "Circle.h"
@@ -21,7 +21,49 @@ using namespace std;
 // TODO: implement two constructors, setCenter, getCenter, setColor, getColor,
 //       setRadius, getRadius, read, write.
 
+//default constructor
+Circle::Circle() {
+    //to do- implement
+}
 
+Circle::Circle(Point pt, int r, Color c) {
+    //to do- implement
+}
+
+void Circle::setCenter(Point pt) {
+    //to do- implement
+}
+
+Point Circle::getCenter() {
+    return center;
+}
+
+void Circle::setRadius(int r) {
+    //to do- implement
+}
+
+int Circle::getRadius() {
+    //to do- implement
+
+    //to do- replace with correct return statement
+    return 0;
+}
+
+void Circle::setColor(Color c) {
+    //to do- implement
+}
+
+Color Circle::getColor() {
+    return color;
+}
+
+void Circle::read(istream& ins) {
+    //to do- implement
+}
+
+void Circle::write(ostream& outs) {
+    //to do- implement
+}
 
 // Your code goes above this line.
 // Don't change the implementations below!
