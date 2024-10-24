@@ -5,10 +5,10 @@
  * EECS 183
  * Project 4: CoolPics
  *
- * <#Name(s)#>
- * <#uniqname(s)#>
+ *Blake Yates, Amelia Wu
+ * bryates, wuamelia
  *
- * <#Description#>
+ * Definitions for class Line constructors and member fu
  */
 
 #include "Line.h"
@@ -17,7 +17,46 @@
 // TODO: implement two Line constructors, setStart, getStart, setEnd,
 //       getEnd, setColor, getColor, read, write.
 
+//default constructor
+Line::Line() {
+    //to do- implement
+}
 
+Line::Line(Point pt1, Point pt2, Color color) {
+    //to do- implement
+}
+
+void Line::setStart(Point pt) {
+    //to do- implement
+}
+
+Point Line::getStart() {
+    return start;
+}
+
+void Line::setEnd(Point pt) {
+    //to do- implement
+}
+
+Point Line::getEnd() {
+    return end;
+}
+
+void Line::setColor(Color color) {
+    //to do- implement
+}
+
+Color Line::getColor() {
+    return lineColor;
+}
+
+void Line::read(istream& ins) {
+    //to do- implement
+}
+
+void Line::write(ostream& outs) {
+    //to do- implement
+}
 
 // Your code goes above this line.
 // Don't change the implementations below!
@@ -200,3 +239,4 @@ void Line::draw(Graphics &drawer)
         }
     }
 }
+
