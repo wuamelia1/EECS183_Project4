@@ -5,10 +5,10 @@
  * EECS 183
  * Project 4: CoolPics
  *
- * <#Name(s)#>
- * <#uniqname(s)#>
+ * Blake Yates, Amelia Wu
+ * bryates, wuamelia
  *
- * <#Description#>
+ * Definitions for class Graphics constructors and member fu
  */
 
 #include <iostream>
@@ -24,6 +24,22 @@ using namespace std;
 
 // TODO: implement constructor, clear, setPixel, initArray.
 
+//default constructor
+Graphics::Graphics() {
+    //to do- implement
+}
+
+void Graphics::clear() {
+    //to do- implement
+}
+
+void Graphics::setPixel(int x, int y, Color color) {
+    //to do- implement
+}
+
+void Graphics::initArray() {
+    //to do- implement
+}
 
 
 // Your code goes above this line.
