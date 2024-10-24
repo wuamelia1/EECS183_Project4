@@ -5,10 +5,10 @@
  * EECS 183
  * Project 4: CoolPics
  *
- * <#Name(s)#>
- * <#uniqname(s)#>
+ * Blake Yates, Amelia Wu
+ * bryates, wuamelia
  *
- * <#Description#>
+ * Definitions for class Rectangle constructors and member fu
  */
 
 #include "Rectangle.h"
@@ -23,7 +23,75 @@ using namespace std;
 //       getColorTopRight, setColorBottomRight, getColorBottomRight,
 //       setColorBottomLeft, getColorBottomLeft, read, write.
 
+//default constructor
+Rectangle::Rectangle() {
+    //to do- implement
+}
 
+Rectangle::Rectangle(Point pt1, Point pt2, Color cTopLeft, Color cTopRight,
+                     Color cBottomRight, Color cBottomLeft) {
+    //to do- implement
+}
+
+void Rectangle::setStart(Point pt) {
+    //to do- implement
+}
+
+Point Rectangle::getStart() {
+    return start;
+}
+
+void Rectangle::setEnd(Point pt) {
+    //to do- implement
+}
+
+Point Rectangle::getEnd() {
+    return end;
+}
+
+void Rectangle::setColor(Color color) {
+    //to do- implement
+}
+
+void Rectangle::setColorTopLeft(Color color) {
+    //to do- implement
+}
+
+Color Rectangle::getColorTopLeft() {
+    return colorTopLeft;
+}
+
+void Rectangle::setColorTopRight(Color color) {
+    //to do- implement
+}
+
+Color Rectangle::getColorTopRight() {
+    return colorTopRight;
+}
+
+void Rectangle::setColorBottomRight(Color color) {
+    //to do- implement
+}
+
+Color Rectangle::getColorBottomRight() {
+    return colorBottomRight;
+}
+
+void Rectangle::setColorBottomLeft(Color color) {
+    //to do- implement
+}
+
+Color Rectangle::getColorBottomLeft() {
+    return colorBottomLeft;
+}
+
+void Rectangle::read(istream& ins) {
+    //to do- implement
+}
+
+void Rectangle::write(ostream& outs) {
+    //to do- implement
+}
 
 // Your code goes above this line.
 // Don't change the implementations below!
