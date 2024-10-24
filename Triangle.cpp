@@ -5,10 +5,10 @@
  * EECS 183
  * Project 4: CoolPics
  *
- * <#Name(s)#>
- * <#uniqname(s)#>
+ * Blake Yates, Amelia Wu
+ * bryates, wuamelia
  *
- * <#Description#>
+ * Definitions for class Triangle constructors and member fu
  */
 
 #include "Triangle.h"
@@ -23,6 +23,75 @@ using namespace std;
 //       getVertexTwoColor, setVertexThreeColor, getVertexThreeColor,
 //       read, write.
 
+//default constructor
+Triangle::Triangle() {
+    //to do- implement
+}
+
+Triangle::Triangle(Point pt1, Color color1, Point pt2, Color color2,
+                   Point pt3, Color color3) {
+    //to do- implement
+}
+
+void Triangle::setColor(Color color) {
+    //to do- implement
+}
+
+void Triangle::setVertexOne(Point pt) {
+    //to do- implement
+}
+
+Point Triangle::getVertexOne() {
+    return vertexOne;
+}
+
+void Triangle::setVertexOneColor(Color color) {
+    //to do- implement
+}
+
+Color Triangle::getVertexOneColor() {
+    return vertexOneColor;
+}
+
+void Triangle::setVertexTwo(Point pt) {
+    //to do- implement
+}
+
+Point Triangle::getVertexTwo() {
+    return vertexTwo;
+}
+
+void Triangle::setVertexTwoColor(Color color) {
+    //to do- implement
+}
+
+Color Triangle::getVertexTwoColor() {
+    return vertexTwoColor;
+}
+
+void Triangle::setVertexThree(Point pt) {
+    //to do- implement
+}
+
+Point Triangle::getVertexThree() {
+    return vertexThree;
+}
+
+void Triangle::setVertexThreeColor(Color color) {
+    //to do- implement
+}
+
+Color Triangle::getVertexThreeColor() {
+    return vertexThreeColor;
+}
+
+void Triangle::read(istream& ins) {
+    //to do- implement
+}
+
+void Triangle::write(ostream& outs) {
+    //to do- implement
+}
 
 
 // Your code goes above this line.
