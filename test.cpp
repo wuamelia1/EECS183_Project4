@@ -5,8 +5,8 @@
  * EECS 183
  * Project 4: CoolPics
  *
- * <#Name(s)#>
- * <#uniqname(s)#>
+ * Blake Yates, Amelia Wu
+ * bryates, wuamelia
  *
  * Contains functions for testing classes in the project. 
  */
@@ -35,6 +35,7 @@ void test_Triangle();
 
 void startTests() {
     test_Point();
+    test_Color();
     
     // call other test functions here
     
@@ -57,12 +58,44 @@ void test_Point() {
 
     // test of member functions getX() and getY()
     cout << "Expected: (5,3), actual: ";
-    cout << "( " << p1.getX()
-         << ", " << p1.getY()
-         << " )" << endl;
+    cout << "(" << p1.getX()
+         << "," << p1.getY()
+         << ")" << endl;
     
+    //test of member function checkRange (and non-default constructor)
+    Point p3(-70, 200);
+    cout << "Expected, (0,99), actual: " << p3 << endl;
+
+
     return;
 }
+
+void test_Color() {
+    // test of default constructor
+    Color c1;
+    cout << "Expected: 0  0  0, actual: " << c1 << endl;
+
+    // test of non-default constructor
+    Color c2(10, 20, 30);
+    cout << "Expected: 10  20  30, actual: " << c2 << endl;
+
+    //test of member functions setRed and getRed
+    c1.setRed(175);
+    cout << "Expected: 175, actual: " << c1.getRed() << endl;
+
+    //test of member functions setGreen and getGreen
+    c1.setGreen(12);
+    cout << "Expected: 12, actual: " << c1.getGreen() << endl;
+
+    //test of member functions setBlue and getBlue
+    c1.setBlue(201);
+    cout << "Expected: 201, actual: " << c1.getBlue() << endl;
+
+    //test of member function checkRange (and non-default constructor)
+    Color c3(-2, 100, 300);
+    cout << "Expected: 0  100  255, actual: " << c3 << endl;
+}
+
 
 
 
