@@ -1,5 +1,5 @@
 /**
- * test.cpp
+ * Color.cpp
  * Project UID 2e6ea4e086ea6a06753e819c30923369
  *
  * EECS 183
@@ -8,91 +8,88 @@
  * Blake Yates, Amelia Wu
  * bryates, wuamelia
  *
- * Contains functions for testing classes in the project. 
+ * Definitions for class Color constructors and member fu
  */
 
-#include "Graphics.h"
-#include "Circle.h"
 #include "Color.h"
-#include "Line.h"
-#include "Point.h"
-#include "Rectangle.h"
-#include "Shape.h"
-#include "Triangle.h"
 
-#include <iostream>
-#include <fstream>
+// TODO: implement first checkRange, then two constructors, setRed, getRed,
+//       setGreen, getGreen, setBlue, getBlue, read, write.
 
-using namespace std;
-
-
-void test_Circle();
-void test_Color();
-void test_Line();
-void test_Point();
-void test_Rectangle();
-void test_Triangle();
-
-void startTests() {
-    test_Point();
-    test_Color();
-    
-    // call other test functions here
-    
-    return;
+int Color::checkRange(int val) {
+	if (val >= 0 && val <= 255) {
+		return val;
+	}
+	else if (val < 0) {
+		return 0;
+	}
+	else {
+		return 255;
+	}
 }
 
-void test_Point() {
-    // test of default constructor
-    Point p1;
-    cout << "Expected: (0,0), actual: " << p1 << endl;
-    
-    // test of the non-default constructor
-    Point p2(3, 9);
-    cout << "Expected: (3,9), actual: " << p2 << endl;
-
-    // test of member function: setX()
-    p1.setX(5);
-    // test of member function: setY()
-    p1.setY(3);
-
-    // test of member functions getX() and getY()
-    cout << "Expected: (5,3), actual: ";
-    cout << "(" << p1.getX()
-         << "," << p1.getY()
-         << ")" << endl;
-    
-    //test of member function checkRange (and non-default constructor)
-    Point p3(-70, 200);
-    cout << "Expected, (0,99), actual: " << p3 << endl;
-
-
-    return;
+//default constructor
+Color::Color() {
+	red = 0;
+	green = 0;
+	blue = 0;
 }
 
-void test_Color() {
-    // test of default constructor
-    Color c1;
-    cout << "Expected: 0  0  0, actual: " << c1 << endl;
-
-    // test of non-default constructor
-    Color c2(10, 20, 30);
-    cout << "Expected: 10  20  30, actual: " << c2 << endl;
-
-    //test of member functions setRed and getRed
-    c1.setRed(175);
-    cout << "Expected: 175, actual: " << c1.getRed() << endl;
-
-    //test of member functions setGreen and getGreen
-    c1.setGreen(12);
-    cout << "Expected: 12, actual: " << c1.getGreen() << endl;
-
-    //test of member functions setBlue and getBlue
-    c1.setBlue(201);
-    cout << "Expected: 201, actual: " << c1.getBlue() << endl;
-
-    //test of member function checkRange (and non-default constructor)
-    Color c3(-2, 100, 300);
-    cout << "Expected: 0  100  255, actual: " << c3 << endl;
+Color::Color(int redVal, int greenVal, int blueVal) {
+	red = checkRange(redVal);
+	green = checkRange(greenVal);
+	blue = checkRange(blueVal);
 }
+
+void Color::setRed(int redVal) {
+	red = checkRange(redVal);
+}
+
+int Color::getRed() {
+	return red;
+}
+
+void Color::setGreen(int greenVal) {
+	green = checkRange(greenVal);
+}
+
+int Color::getGreen() {
+	return green;
+}
+
+void Color:: setBlue(int blueVal) {
+	blue = checkRange(blueVal);
+}
+
+int Color::getBlue() {
+	return blue;
+}
+
+void Color::read(istream& ins) {
+	ins >> red >> green >> blue;
+	red = checkRange(red);
+	green = checkRange(green);
+	blue = checkRange(blue);
+}
+
+void Color::write(ostream& outs) {
+	outs << red << "  " << green << "  " << blue;
+}
+
+
+// Your code goes above this line.
+// Don't change the implementations below!
+
+istream& operator >> (istream& ins, Color& color)
+{
+   color.read(ins);
+   return ins;
+}
+
+ostream& operator << (ostream& outs, Color color)
+{
+   color.write(outs);
+   return outs;
+}
+
 
