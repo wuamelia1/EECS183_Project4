@@ -1,3 +1,4 @@
+
 /**
  * Graphics.cpp
  * Project UID 2e6ea4e086ea6a06753e819c30923369
@@ -8,7 +9,7 @@
  * Blake Yates, Amelia Wu
  * bryates, wuamelia
  *
- * Definitions for class Graphics constructors and member fu
+ * Definitions for class Graphics constructors and member functions
  */
 
 #include <iostream>
@@ -26,19 +27,37 @@ using namespace std;
 
 //default constructor
 Graphics::Graphics() {
-    //to do- implement
+    for (int i = 0; i < DIMENSION; i++) {
+        for (int j = 0; j < DIMENSION; j++) {
+            pixelData[i][j];
+        }
+    }
 }
 
 void Graphics::clear() {
-    //to do- implement
+    for (int i = 0; i < DIMENSION; i++) {
+        for (int j = 0; j < DIMENSION; j++) {
+            pixelData[i][j].setBlue(0);
+            pixelData[i][j].setRed(0);
+            pixelData[i][j].setGreen(0);
+        }
+    }
 }
 
 void Graphics::setPixel(int x, int y, Color color) {
-    //to do- implement
+    pixelData[x][y].setGreen(color.getGreen());
+    pixelData[x][y].setRed(color.getRed());
+    pixelData[x][y].setBlue(color.getBlue());
 }
 
 void Graphics::initArray() {
-    //to do- implement
+    for (int i = 0; i < DIMENSION; i++) {
+        for (int j = 0; j < DIMENSION; j++) {
+            pixelData[i][j].setBlue(0);
+            pixelData[i][j].setRed(0);
+            pixelData[i][j].setGreen(0);
+        }
+    }
 }
 
 
