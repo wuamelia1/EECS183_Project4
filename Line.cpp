@@ -1,3 +1,4 @@
+
 /**
  * Line.cpp
  * Project UID 2e6ea4e086ea6a06753e819c30923369
@@ -8,26 +9,28 @@
  *Blake Yates, Amelia Wu
  * bryates, wuamelia
  *
- * Definitions for class Line constructors and member fu
+ * Definitions for class Line constructors and member functions
  */
 
 #include "Line.h"
 #include "Graphics.h"
 
-// TODO: implement two Line constructors, setStart, getStart, setEnd,
-//       getEnd, setColor, getColor, read, write.
+ // TODO: implement two Line constructors, setStart, getStart, setEnd,
+ //       getEnd, setColor, getColor, read, write.
 
-//default constructor
+ //default constructor
 Line::Line() {
-    //to do- implement
+
 }
 
 Line::Line(Point pt1, Point pt2, Color color) {
-    //to do- implement
+    start = pt1;
+    end = pt2;
+    lineColor = color;
 }
 
 void Line::setStart(Point pt) {
-    //to do- implement
+    start = pt;
 }
 
 Point Line::getStart() {
@@ -35,7 +38,7 @@ Point Line::getStart() {
 }
 
 void Line::setEnd(Point pt) {
-    //to do- implement
+    end = pt;
 }
 
 Point Line::getEnd() {
@@ -43,7 +46,7 @@ Point Line::getEnd() {
 }
 
 void Line::setColor(Color color) {
-    //to do- implement
+    lineColor = color;
 }
 
 Color Line::getColor() {
@@ -51,11 +54,12 @@ Color Line::getColor() {
 }
 
 void Line::read(istream& ins) {
-    //to do- implement
+    char junk;
+    ins >> start >> junk >> end >> junk >> lineColor;
 }
 
 void Line::write(ostream& outs) {
-    //to do- implement
+    outs << start << " " << end << " " << lineColor;
 }
 
 // Your code goes above this line.
@@ -73,7 +77,7 @@ ostream& operator << (ostream& outs, Line line)
     return outs;
 }
 
-void Line::draw(Graphics &drawer)
+void Line::draw(Graphics& drawer)
 {
     /**
      * This function is based on the Bresenham's line algorithm and is highly
@@ -132,12 +136,12 @@ void Line::draw(Graphics &drawer)
     }
 
 
-    int dy            = p2y - p1y;  // y-increment from p1 to p2
-    int dx            = p2x - p1x;  // x-increment from p1 to p2
-    int dy2           = (dy << 1);  // dy << 1 == 2*dy  i.e., bit shifting
-    int dx2           = (dx << 1);
+    int dy = p2y - p1y;  // y-increment from p1 to p2
+    int dx = p2x - p1x;  // x-increment from p1 to p2
+    int dy2 = (dy << 1);  // dy << 1 == 2*dy  i.e., bit shifting
+    int dx2 = (dx << 1);
     int dy2_minus_dx2 = dy2 - dx2;  // precompute constant for speed up
-    int dy2_plus_dx2  = dy2 + dx2;
+    int dy2_plus_dx2 = dy2 + dx2;
 
 
     if (dy >= 0)    // m >= 0
