@@ -1,101 +1,69 @@
 /**
  * test.cpp
+ *
  * Project UID 2e6ea4e086ea6a06753e819c30923369
  *
  * EECS 183
- * Project 4: CoolPics
+ * Lab 7
+ * Taken from Project 4: CoolPics
  *
- * Blake Yates, Amelia Wu
- * bryates, wuamelia
+ * <#Amelia Wu#>
+ * <#wuamelia#>
  *
- * Contains functions for testing classes in the project. 
+ * <#Implements tests for Point.cpp#>
  */
-
-#include "Graphics.h"
-#include "Circle.h"
-#include "Color.h"
-#include "Line.h"
-#include "Point.h"
-#include "Rectangle.h"
-#include "Shape.h"
-#include "Triangle.h"
 
 #include <iostream>
 #include <fstream>
-
 using namespace std;
 
+#include "Point.h"
 
-void test_Circle();
-void test_Color();
-void test_Line();
 void test_Point();
-void test_Rectangle();
-void test_Triangle();
+void file_check();
 
 void startTests() {
     test_Point();
-    test_Color();
-    
-    // call other test functions here
-    
+    file_check();
+
     return;
 }
 
 void test_Point() {
-    // test of default constructor
-    Point p1;
-    cout << "Expected: (0,0), actual: " << p1 << endl;
-    
-    // test of the non-default constructor
-    Point p2(3, 9);
-    cout << "Expected: (3,9), actual: " << p2 << endl;
+    Point pt1;
+    pt1.setX(15);
+    cout << "Expected: (15,0), actual :" << pt1 << endl;
 
-    // test of member function: setX()
-    p1.setX(5);
-    // test of member function: setY()
-    p1.setY(3);
+    Point pt2;
+    pt2.setX(-42);
+    pt2.setY(100);
+    cout << "Expected: (0,99), actual :" << pt2 << endl;
 
-    // test of member functions getX() and getY()
-    cout << "Expected: (5,3), actual: ";
-    cout << "(" << p1.getX()
-         << "," << p1.getY()
-         << ")" << endl;
-    
-    //test of member function checkRange (and non-default constructor)
-    Point p3(-70, 200);
-    cout << "Expected, (0,99), actual: " << p3 << endl;
-
-
+    Point pt3(-15, 102);
+    cout << "Expected: (0,99), actual :" << pt3 << endl;
+        
+    ifstream input_file;
+    input_file.open("data1.txt");
+    pt1.read(input_file);
+    cout << "Expected: (42,7), actual :" << pt1 << endl;
+  
     return;
 }
 
-void test_Color() {
-    // test of default constructor
-    Color c1;
-    cout << "Expected: 0  0  0, actual: " << c1 << endl;
+void file_check() {
 
-    // test of non-default constructor
-    Color c2(10, 20, 30);
-    cout << "Expected: 10  20  30, actual: " << c2 << endl;
+    // open one of the text files that are part of the starter code
+    ifstream ins;
+    ins.open("data1.txt");
 
-    //test of member functions setRed and getRed
-    c1.setRed(175);
-    cout << "Expected: 175, actual: " << c1.getRed() << endl;
+    // if the file was not in the correct directory, the stream state is fail
+    if (ins.fail()) {
+        cout << "Could not open data1.txt" << endl;
+    }
+    else {
+        cout << "Success! Text files are in the right directory." << endl;
+    }
+    ins.close();
 
-    //test of member functions setGreen and getGreen
-    c1.setGreen(12);
-    cout << "Expected: 12, actual: " << c1.getGreen() << endl;
-
-    //test of member functions setBlue and getBlue
-    c1.setBlue(201);
-    cout << "Expected: 201, actual: " << c1.getBlue() << endl;
-
-    //test of member function checkRange (and non-default constructor)
-    Color c3(-2, 100, 300);
-    cout << "Expected: 0  100  255, actual: " << c3 << endl;
+    return;
 }
-
-
-
-
