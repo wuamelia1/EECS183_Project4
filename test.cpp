@@ -41,7 +41,9 @@ void startTests() {
     test_Color();
     test_Graphics();
     test_Line();
+    test_Triangle();
     file_check();
+
     // call other test functions here
 
     return;
@@ -147,6 +149,52 @@ void test_Line() {
     line1.setColor(c2);
     cout << "Expected: 3 4 5, Actual: " << line1.getColor() << endl;
 
+}
+
+void test_Triangle() {
+    cout << endl << "Now testing class Triangle" << endl;
+
+    //points and colors to use in test cases
+    Point p1(0, 0);
+    Point p2(1, 5);
+    Point p3(6, 7);
+    Color c1(1, 2, 3);
+    Color c2(0, 0, 0);
+    Color c3(4, 5, 5);
+
+    //test of default constructor
+    Triangle t1;
+    cout << "Expected: (0,0) 0 0 0 (0,0) 0 0 0 (0,0) 0 0 0, Actual: " <<
+        t1 << endl;
+
+    //test of non-default constructor
+    Triangle t2(p1, c1, p2, c2, p3, c3);
+    cout << "Expected: (0,0) 1 2 3 (1,5) 0 0 0 (6,7) 4 5 5, Actual: " <<
+        t2 << endl;
+
+    //test of function getVertexOne() and setVertexOne()
+    t2.setVertexOne(p3);
+    cout << "Expected: (6,7), Actual: " << t2.getVertexOne() << endl;
+
+    //test of function getVertexOneColor() and setVertexOneColor()
+    t2.setVertexOneColor(c2);
+    cout << "Expected: 0 0 0, Actual: " << t2.getVertexOneColor() << endl;
+
+    //test of function getVertexTwo() and setVertexTwo()
+    t2.setVertexTwo(p3);
+    cout << "Expected: (6,7), Actual: " << t2.getVertexTwo() << endl;
+
+    //test of function getVertexTwoColor() and setVertexTwoColor()
+    t2.setVertexTwoColor(c1);
+    cout << "Expected: 1 2 3, Actual: " << t2.getVertexTwoColor() << endl;
+
+    //test of function getVertexThree() and setVertexThree()
+    t2.setVertexThree(p1);
+    cout << "Expected: (0,0), Actual: " << t2.getVertexThree() << endl;
+
+    //test of function getVertexThreeColor() and setVertexThreeColor()
+    t2.setVertexThreeColor(c1);
+    cout << "Expected: 1 2 3, Actual: " << t2.getVertexThreeColor() << endl;
 }
 
 void file_check() {
