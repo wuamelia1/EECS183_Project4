@@ -70,7 +70,7 @@ void Color::read(istream& ins) {
 }
 
 void Color::write(ostream& outs) {
-	outs << red << "  " << green << "  " << blue;
+	outs << red << " " << green << " " << blue;
 }
 
 
