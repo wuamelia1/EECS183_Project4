@@ -13,9 +13,6 @@
 
 #include "Color.h"
 
-// TODO: implement first checkRange, then two constructors, setRed, getRed,
-//       setGreen, getGreen, setBlue, getBlue, read, write.
-
 int Color::checkRange(int val) {
 	if (val >= 0 && val <= 255) {
 		return val;
