@@ -43,7 +43,8 @@ void startTests() {
     test_Line();
     test_Triangle();
     file_check();
-
+    test_Circle();
+    test_Rectangle();
     // call other test functions here
 
     return;
@@ -123,16 +124,16 @@ void test_Graphics() {
 
 void test_Line() {
     cout << endl << "Now testing class Line" << endl;
-   
+
     //Default constructor test
     Line line1;
     cout << "Expected: (0,0) (0,0) 0 0 0, Actual: " << line1 << endl;
-    
+
     //Non-default constructor test
     Point pt1(0, 0);
     Point pt2(0, 5);
     Color c1;
-    Line line2 (pt1, pt2, c1);
+    Line line2(pt1, pt2, c1);
     cout << "Expected: (0,0) (0,5) 0 0 0, Actual: " << line2 << endl;
 
     //test of function set start and get start
@@ -217,7 +218,7 @@ void test_Circle() {
     cout << "Expected: (12, 3), actual: " << c1.getCenter() << endl;
 
     //test member functions set and get radius
-    c1.setRadius(74);
+    c1.setRadius(-74);
     cout << "Expected: 74, actual: " << c1.getRadius() << endl;
 
     //test member functions set and get color
@@ -240,6 +241,53 @@ void file_check() {
         cout << "Success! Text files are in the right directory." << endl;
     }
     ins.close();
+
+    return;
+}
+
+void test_Rectangle() {
+    cout << endl << "Now testing class Rectangle" << endl;
+    //points and colors to use in tests
+    Point p1(10, 10);
+    Point p2(20, 30);
+    Point p3(9, 9);
+    Color c1(0, 1, 2);
+    Color c2(3, 4, 5);
+    Color c3(10, 10, 10);
+    Color c4(5, 6, 7);
+    Color c5(2, 3, 4);
+
+    //test of default constructor
+    Rectangle r1;
+    cout << "Expected: (0,0)  (0,0)  0  0  0  0  0  0  0  0  0  0  0  0, Actual: " << r1 << endl;
+
+    //test of non-default constructor
+    Rectangle r2(p1, p2, c1, c2, c3, c4);
+    cout << "Expected (10,10)  (20,30)  0  1  2  3  4  5  10  10  10  5  6  7, Actual: " << r2 << endl;
+
+    //test of function setStart and getStart
+    r1.setStart(p3);
+    cout << "Expected: (9,9), Actual: " << r1.getStart() << endl;
+
+    //test of function setEnd and getEnd
+    r1.setEnd(p3);
+    cout << "Expected: (9,9), Actual: " << r2.getEnd() << endl;
+
+    //test of function setColorTopLeft and getColorTopLeft
+    r1.setColorTopLeft(c5);
+    cout << "Expected: 2  3  4, Actual: " << r1.getColorTopLeft() << endl;
+
+    //test of function setColorTopRight and getColorTopRight
+    r1.setColorTopRight(c5);
+    cout << "Expected: 2  3  4, Actual: " << r1.getColorTopRight() << endl;
+
+    //test of function setColorBottomRight and getColorBottomRight
+    r1.setColorBottomRight(c5);
+    cout << "Expected: 2  3  4, Actual: " << r1.getColorBottomRight() << endl;
+
+    //test of function setColorBottomLeft and getColorBottomLeft
+    r1.setColorBottomLeft(c5);
+    cout << "Expected 2  3  4, Actual: " << r1.getColorBottomLeft() << endl;
 
     return;
 }
