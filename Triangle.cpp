@@ -93,14 +93,13 @@ Color Triangle::getVertexThreeColor() {
 }
 
 void Triangle::read(istream& ins) {
-    char junk;
-    ins >> vertexOne >> junk >> vertexOneColor >> junk >> vertexTwo >> junk >> vertexTwoColor
-        >> junk >> vertexThree >> junk >> vertexThreeColor;
+    ins >> vertexOne >> vertexOneColor >> vertexTwo >> vertexTwoColor
+         >> vertexThree >> vertexThreeColor;
 }
 
 void Triangle::write(ostream& outs) {
-    outs << vertexOne << " " << vertexOneColor << " " << vertexTwo << " " << vertexTwoColor
-        << " " << vertexThree << " " << vertexThreeColor;
+    outs << vertexOne << "  " << vertexOneColor << "  " << vertexTwo << "  " << vertexTwoColor
+        << "  " << vertexThree << "  " << vertexThreeColor;
 }
 
 
