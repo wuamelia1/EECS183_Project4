@@ -197,6 +197,35 @@ void test_Triangle() {
     cout << "Expected: 1 2 3, Actual: " << t2.getVertexThreeColor() << endl;
 }
 
+void test_Circle() {
+    cout << endl << "Now testing class Circle" << endl;
+
+    //test of default constructor
+    Circle c1;
+    cout << "Expected: (0,0) 0 0  0  0, actual: " << c1 << endl;
+
+    //test of non-default constructor
+    Point initCenter(10, 71);
+    Color red(255, 0, 0);
+
+    Circle c2(initCenter, 4, red);
+    cout << "Expected: (10,71) 4 255  0  0, actual: " << c2 << endl;
+
+    //test member functions set and get center
+    Point newCenter(12, 3);
+    c1.setCenter(newCenter);
+    cout << "Expected: (12, 3), actual: " << c1.getCenter() << endl;
+
+    //test member functions set and get radius
+    c1.setRadius(74);
+    cout << "Expected: 74, actual: " << c1.getRadius() << endl;
+
+    //test member functions set and get color
+    Color blue(0, 0, 255);
+    c1.setColor(blue);
+    cout << "Expected: 0  0  255, actual: " << c1.getColor() << endl;
+}
+
 void file_check() {
 
     // open one of the text files that are part of the starter code
