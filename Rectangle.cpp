@@ -1,3 +1,4 @@
+
 /**
  * Rectangle.cpp
  * Project UID 2e6ea4e086ea6a06753e819c30923369
@@ -25,16 +26,21 @@ using namespace std;
 
 //default constructor
 Rectangle::Rectangle() {
-    //to do- implement
+    
 }
 
 Rectangle::Rectangle(Point pt1, Point pt2, Color cTopLeft, Color cTopRight,
-                     Color cBottomRight, Color cBottomLeft) {
-    //to do- implement
+    Color cBottomRight, Color cBottomLeft) {
+    start = pt1;
+    end = pt2;
+    colorTopLeft = cTopLeft;
+    colorTopRight = cTopRight;
+    colorBottomLeft = cBottomLeft;
+    colorBottomRight = cBottomRight;
 }
 
 void Rectangle::setStart(Point pt) {
-    //to do- implement
+    start = pt;
 }
 
 Point Rectangle::getStart() {
@@ -42,7 +48,7 @@ Point Rectangle::getStart() {
 }
 
 void Rectangle::setEnd(Point pt) {
-    //to do- implement
+    end = pt;
 }
 
 Point Rectangle::getEnd() {
@@ -50,11 +56,14 @@ Point Rectangle::getEnd() {
 }
 
 void Rectangle::setColor(Color color) {
-    //to do- implement
+    colorTopLeft = color;
+    colorTopRight = color;
+    colorBottomLeft = color;
+    colorBottomRight = color;
 }
 
 void Rectangle::setColorTopLeft(Color color) {
-    //to do- implement
+    colorTopLeft = color;
 }
 
 Color Rectangle::getColorTopLeft() {
@@ -62,7 +71,7 @@ Color Rectangle::getColorTopLeft() {
 }
 
 void Rectangle::setColorTopRight(Color color) {
-    //to do- implement
+    colorTopRight = color;
 }
 
 Color Rectangle::getColorTopRight() {
@@ -70,7 +79,7 @@ Color Rectangle::getColorTopRight() {
 }
 
 void Rectangle::setColorBottomRight(Color color) {
-    //to do- implement
+    colorBottomRight = color;
 }
 
 Color Rectangle::getColorBottomRight() {
@@ -78,7 +87,7 @@ Color Rectangle::getColorBottomRight() {
 }
 
 void Rectangle::setColorBottomLeft(Color color) {
-    //to do- implement
+    colorBottomLeft = color;
 }
 
 Color Rectangle::getColorBottomLeft() {
@@ -86,11 +95,13 @@ Color Rectangle::getColorBottomLeft() {
 }
 
 void Rectangle::read(istream& ins) {
-    //to do- implement
+    ins >> start >> end >> colorTopLeft >> colorTopRight >> colorBottomRight 
+        >> colorBottomLeft;
 }
 
 void Rectangle::write(ostream& outs) {
-    //to do- implement
+    outs << start << "  " << end << "  " << colorTopLeft << "  " << colorTopRight <<
+        "  " << colorBottomRight << "  " << colorBottomLeft;
 }
 
 // Your code goes above this line.
@@ -108,7 +119,7 @@ ostream& operator << (ostream& outs, Rectangle rectangle)
     return outs;
 }
 
-void Rectangle::draw(Graphics & drawer)
+void Rectangle::draw(Graphics& drawer)
 {
     // four points of rectangles
     Point topLeft = start;
@@ -118,26 +129,26 @@ void Rectangle::draw(Graphics & drawer)
 
     // center point and color by averaging
     Point center((start.getX() + end.getX()) / 2,
-                 (start.getY() + end.getY()) / 2);
+        (start.getY() + end.getY()) / 2);
     Color colorCenter((colorTopLeft.getRed() + colorTopRight.getRed() +
-                       colorBottomRight.getRed() +
-                       colorBottomLeft.getRed()) / 4,
-                      (colorTopLeft.getGreen() + colorTopRight.getGreen() +
-                       colorBottomRight.getGreen() +
-                       colorBottomLeft.getGreen()) / 4,
-                      (colorTopLeft.getBlue() + colorTopRight.getBlue() +
-                       colorBottomRight.getBlue() +
-                       colorBottomLeft.getBlue()) / 4);
+        colorBottomRight.getRed() +
+        colorBottomLeft.getRed()) / 4,
+        (colorTopLeft.getGreen() + colorTopRight.getGreen() +
+            colorBottomRight.getGreen() +
+            colorBottomLeft.getGreen()) / 4,
+        (colorTopLeft.getBlue() + colorTopRight.getBlue() +
+            colorBottomRight.getBlue() +
+            colorBottomLeft.getBlue()) / 4);
 
     // four triangles to represent rectangle
     Triangle top(topLeft, colorTopLeft, topRight, colorTopRight,
-                 center, colorCenter);
+        center, colorCenter);
     Triangle bottom(bottomLeft, colorBottomLeft, bottomRight, colorBottomRight,
-                    center, colorCenter);
+        center, colorCenter);
     Triangle left(topLeft, colorTopLeft, bottomLeft, colorBottomLeft,
-                  center, colorCenter);
+        center, colorCenter);
     Triangle right(topRight, colorTopRight, bottomRight, colorBottomRight,
-                   center, colorCenter);
+        center, colorCenter);
     top.draw(drawer);
     bottom.draw(drawer);
     left.draw(drawer);
