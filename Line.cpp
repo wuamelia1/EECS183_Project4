@@ -54,12 +54,11 @@ Color Line::getColor() {
 }
 
 void Line::read(istream& ins) {
-    char junk;
-    ins >> start >> junk >> end >> junk >> lineColor;
+    ins >> start >> end >> lineColor;
 }
 
 void Line::write(ostream& outs) {
-    outs << start << " " << end << " " << lineColor;
+    outs << start << "  " << end << "  " << lineColor;
 }
 
 // Your code goes above this line.
