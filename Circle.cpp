@@ -23,15 +23,22 @@ using namespace std;
 
 //default constructor
 Circle::Circle() {
-    //to do- implement
+    Point null(0, 0);
+    Color black(0, 0, 0);
+
+    center = null;
+    radius = 0;
+    color = black;
 }
 
 Circle::Circle(Point pt, int r, Color c) {
-    //to do- implement
+    center = pt;
+    radius = r;
+    color = c;
 }
 
 void Circle::setCenter(Point pt) {
-    //to do- implement
+    center = pt;
 }
 
 Point Circle::getCenter() {
@@ -39,18 +46,15 @@ Point Circle::getCenter() {
 }
 
 void Circle::setRadius(int r) {
-    //to do- implement
+    radius = checkRadius(r);
 }
 
 int Circle::getRadius() {
-    //to do- implement
-
-    //to do- replace with correct return statement
-    return 0;
+    return radius;
 }
 
 void Circle::setColor(Color c) {
-    //to do- implement
+    color = c;
 }
 
 Color Circle::getColor() {
@@ -58,11 +62,11 @@ Color Circle::getColor() {
 }
 
 void Circle::read(istream& ins) {
-    //to do- implement
+    ins >> center >> radius >> color;
 }
 
 void Circle::write(ostream& outs) {
-    //to do- implement
+    outs << center << " " << radius << " " << color;
 }
 
 // Your code goes above this line.
@@ -136,3 +140,4 @@ void Circle::plot4points(int x, int y, Color c, Graphics& drawer)
     Line line2(pt2Start, pt2End, c);
     line2.draw(drawer);
 }
+
