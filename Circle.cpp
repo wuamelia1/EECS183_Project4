@@ -49,8 +49,9 @@ void Circle::setRadius(int r) {
     radius = checkRadius(r);
 }
 
+
 int Circle::getRadius() {
-    return radius;
+    return checkRadius(radius);
 }
 
 void Circle::setColor(Color c) {
@@ -84,7 +85,7 @@ ostream& operator << (ostream& outs, Circle circle)
     return outs;
 }
 
-void Circle::draw(Graphics & drawer)
+void Circle::draw(Graphics& drawer)
 {
     int radius = min(getRadius(), (int)DIMENSION);
     int error = -radius;
