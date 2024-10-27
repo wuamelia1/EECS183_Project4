@@ -33,7 +33,7 @@ Circle::Circle() {
 
 Circle::Circle(Point pt, int r, Color c) {
     center = pt;
-    radius = r;
+    radius = checkRadius(r);
     color = c;
 }
 
@@ -49,9 +49,8 @@ void Circle::setRadius(int r) {
     radius = checkRadius(r);
 }
 
-
 int Circle::getRadius() {
-    return checkRadius(radius);
+    return radius;
 }
 
 void Circle::setColor(Color c) {
@@ -64,10 +63,11 @@ Color Circle::getColor() {
 
 void Circle::read(istream& ins) {
     ins >> center >> radius >> color;
+    radius = checkRadius(radius);
 }
 
 void Circle::write(ostream& outs) {
-    outs << center << "  " << radius << "  " << color;
+    outs << center << " " << radius << " " << color;
 }
 
 // Your code goes above this line.
@@ -85,7 +85,7 @@ ostream& operator << (ostream& outs, Circle circle)
     return outs;
 }
 
-void Circle::draw(Graphics& drawer)
+void Circle::draw(Graphics & drawer)
 {
     int radius = min(getRadius(), (int)DIMENSION);
     int error = -radius;
