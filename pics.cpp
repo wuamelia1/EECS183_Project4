@@ -8,7 +8,7 @@
  * Blake Yates, Amelia Wu
  * bryates, wuamelia
  *
- * <#Description#>
+ * Functions to allow user to write or load pictures.
  */
 
 #include <iostream>
