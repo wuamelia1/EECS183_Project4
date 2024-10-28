@@ -5,8 +5,8 @@
  * EECS 183
  * Project 4: CoolPics
  *
- * <#Name(s)#>
- * <#uniqname(s)#>
+ * Blake Yates, Amelia Wu
+ * bryates, wuamelia
  *
  * <#Description#>
  */
@@ -135,18 +135,66 @@ void coolPics()
 
 void writeFile(const Graphics& drawer)
 {
-    // TODO: implement
     // This will make use of Graphics::writeFile()
+    string file;
+    cin >> file;
+    file += ".bmp";
+    drawer.writeFile(file);
+    cout << "[Wrote " << file << "]" << endl;
+    return;
 }
 
 void loadFile(Graphics& drawer)
 {
-    // TODO: implement
+    
+    ifstream inS;
+    char c;
+    string fileName;
+    Line line;
+    Triangle triangle;
+    Circle circle;
+    Rectangle rectangle;
+
+    fileName = openFile(inS);
+
+    while (inS >> c) {
+        if (c == 'L') {
+            inS >> line;
+            line.draw(drawer);
+        }
+        else if (c == 'T') {
+            inS >> triangle;
+            triangle.draw(drawer);
+        }
+        else if (c == 'C') {
+            inS >> circle;
+            circle.draw(drawer);
+        }
+        else if (c == 'R') {
+            inS >> rectangle;
+            rectangle.draw(drawer);
+        }
+        else {
+            drawer.clear();
+            cout << "[Error in input file: " << c << "]" << endl;
+            inS.close();
+            return;
+        }
+    }
+    
+    inS.close();
+    cout << "[Loaded " <<  fileName << "]" << endl;
+    return;
 }
 
 string tolower(string str)
 {
-    // TODO: implement
+    int i;
+    for (i = 0; i < str.size(); i++) {
+        if (isupper(str.at(i))) {
+            str.at(i) = tolower(str.at(i));
+        }
+    }
 
     return str;
 }
