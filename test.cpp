@@ -276,6 +276,11 @@ void test_Rectangle() {
     Rectangle r2(p1, p2, c1, c2, c3, c4);
     cout << "Expected (10,10)  (20,30)  0  1  2  3  4  5  10  10  10  5  6  7, Actual: " << r2 << endl;
 
+    //test of function setColor
+    Color red(255, 0, 0);
+    r1.setColor(red);
+    cout << "Expected: (0,0) (0,0) 255  0  0 255  0  0 255  0  0 0  0  0, Actual: " << r1 << endl;
+
     //test of function setStart and getStart
     r1.setStart(p3);
     cout << "Expected: (9,9), Actual: " << r1.getStart() << endl;
