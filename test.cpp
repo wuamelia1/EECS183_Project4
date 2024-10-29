@@ -210,27 +210,33 @@ void test_Circle() {
     Circle c1;
     cout << "Expected: (0,0) 0 0  0  0, actual: " << c1 << endl;
 
-    //test of non-default constructor
-    Point initCenter(10, 71);
+    //test of non-default constructor (and checkRadius)
+    Point initCenter(-200, 700);
+    Point initCenter2(30, 40);
     Color red(255, 0, 0);
 
     Circle c2(initCenter, 4, red);
-    cout << "Expected: (10,71) 4 255  0  0, actual: " << c2 << endl;
+    Circle c3(initCenter2, -1, red);
+    cout << "Expected: (0,71) 4 255  0  0, actual: " << c2 << endl;
+    cout << "Expected: (30,40) 1 255  0  0, actual: " << c3 << endl;
 
     //test member functions set and get center
-    Point newCenter(12, 3);
+    Point newCenter(12,3);
     c1.setCenter(newCenter);
-    cout << "Expected: (12, 3), actual: " << c1.getCenter() << endl;
+    cout << "Expected: (12,3), actual: " << c1.getCenter() << endl;
 
     //test member functions set and get radius
-    c1.setRadius(-74);
+    c1.setRadius(74);
     cout << "Expected: 74, actual: " << c1.getRadius() << endl;
+    c1.setRadius(-30);
+    cout << "Expected: 30, actual: " << c1.getRadius() << endl;
 
     //test member functions set and get color
     Color blue(0, 0, 255);
     c1.setColor(blue);
     cout << "Expected: 0  0  255, actual: " << c1.getColor() << endl;
 }
+
 
 void file_check() {
 
