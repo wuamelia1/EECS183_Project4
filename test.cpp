@@ -150,6 +150,11 @@ void test_Line() {
     line1.setColor(c2);
     cout << "Expected: 3 4 5, Actual: " << line1.getColor() << endl;
 
+    //test write
+    ofstream output_file;
+    output_file.open("data2.txt");
+    line2.write(output_file);
+
 }
 
 void test_Triangle() {
